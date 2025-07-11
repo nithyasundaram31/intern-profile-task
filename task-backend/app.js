@@ -7,7 +7,7 @@ const cors=require('cors')
 const app=express()
 app.use(express.json());
 app.use(cors({
-      origin: 'https://lustrous-kangaroo-2203e7.netlify.app', 
+      origin: 'https://merry-mousse-39b636.netlify.app', 
     credentials: true, // Allow credentials to be sent
 }))
 

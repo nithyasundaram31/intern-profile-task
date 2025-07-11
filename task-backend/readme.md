@@ -1,1 +1,1 @@
-https://internship-task-backend-4j86.onrender.com/
+https://intern-profile-task-2.onrender.com/
