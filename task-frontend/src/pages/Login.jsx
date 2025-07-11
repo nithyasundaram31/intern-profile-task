@@ -10,8 +10,12 @@ export default function Login(){
     const handleChange = (e) => setInput({ ...input, [e.target.name]: e.target.value});
     const handleLogin = async (e)=>{
         e.preventDefault();
+        const Newinput = {
+    email: input.email.trim().toLowerCase(),     
+    password: input.password.trim(),            
+  };
         try{ 
-            const res = await authServices.login(input);
+            const res = await authServices.login(Newinput);
             toast.success('Login successfully')
             localStorage.setItem('token', res.data.token);
             navigate('/profile');
