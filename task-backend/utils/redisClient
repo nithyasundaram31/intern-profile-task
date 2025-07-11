@@ -1,0 +1,11 @@
+require ('dotenv').config()
+const { Redis } = require('@upstash/redis');
+
+const redis =new Redis({
+    url:process.env.UPSTASH_REDIS_URL,
+    token:process.env.UPSTASH_REDIS_TOKEN,
+});
+console.log("Redis URL:", process.env.UPSTASH_REDIS_URL);
+console.log("Redis Token:", process.env.UPSTASH_REDIS_TOKEN);
+
+module.exports =redis
