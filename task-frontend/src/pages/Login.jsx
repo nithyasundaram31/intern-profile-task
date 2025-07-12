@@ -16,8 +16,9 @@ export default function Login(){
   };
         try{ 
             const res = await authServices.login(Newinput);
-            toast.success('Login successfully')
             localStorage.setItem('token', res.data.token);
+            toast.success('Login successfull')
+            
             navigate('/profile');
         }catch (err){
             console.error("Login failed:", err);

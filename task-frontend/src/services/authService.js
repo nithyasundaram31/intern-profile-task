@@ -8,29 +8,14 @@ const authServices = {
        
         return await instance.post('/api/users/login', userData);
     },
+    
     getProfile: async () => {
-         const token = localStorage.getItem('token');
-    return await instance.get(`/api/users/profile` ,
-
-        {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-}
-    );
+    return await instance.get(`/api/users/profile`);
   },
 
    updateProfile: async (userData)=>{
-     const token = localStorage.getItem('token');
-  return await instance.put(`/api/users/profile`,userData ,
-      {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-}
-
-
-  );
+   
+  return await instance.put(`/api/users/profile`,userData );
 
    }
     
