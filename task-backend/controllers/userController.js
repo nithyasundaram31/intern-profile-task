@@ -17,9 +17,9 @@ exports.register =async(req,res)=>{
           await user.save();
 
          const token =generateToken(user._id);
-         await redis.set(token,user._id.toString(),{EX:60*60*24})
+         await redis.set(token,user._id.toString(),{ EX: 60 * 60 * 24 })
        
-res.status(201).json({token})
+return res.status(201).json({token})
 
     }
     catch(error){
@@ -44,10 +44,10 @@ exports.login=async(req,res)=>{
         await redis.set(token,user._id.toString(), {
             EX: 60* 60* 24,
         });
-        res.json({token})
+       return  res.status(200).json({token})
     }catch(error){
         console.log("login error:",error)
-          res.status(500).json({message:"server error"});
+        return res.status(500).json({message:"server error"});
 
 
     }
