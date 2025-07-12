@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = 'https://intern-profile-task-2.onrender.com';
+const baseURL = 'https://intern-profile-task.onrender.com';
 
 const instance = axios.create({
     baseURL,
