@@ -7,7 +7,7 @@ const cors=require('cors')
 const app=express()
 app.use(express.json());
 app.use(cors({
-      origin: 'https://zingy-frangipane-0858ca.netlify.app', 
+      origin: 'https://transcendent-meerkat-360e19.netlify.app', 
     credentials: true, // Allow credentials to be sent
 }))
 
