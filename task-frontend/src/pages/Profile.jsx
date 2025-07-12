@@ -31,7 +31,7 @@ export default function Profile(){
 
     const updateProfile = async () =>{
         try { 
-            await authServices.updateProfile( user)
+            await authService.updateProfile( user)
             setEditMode(false);
            toast.success("Profile updated successfully");
         }catch (err) {
