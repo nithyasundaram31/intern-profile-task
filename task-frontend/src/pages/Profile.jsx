@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
-import authServices from "../services/authService";
+import authService from "../services/authService";
 import { toast } from "react-toastify";
 
 export default function Profile(){
@@ -16,9 +16,9 @@ export default function Profile(){
             navigate("/login");
             return;
         }
-   const id = localStorage.getItem("userId"); 
+//    const id = localStorage.getItem("userId"); 
   
-        authServices.getProfile()
+        authService.getProfile()
         .then(res => setUser(res.data))
         .catch((err) => {
             console.error("Error fetching profile:", err);

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import authServices from "../services/authService";
+import authService from "../services/authService";
 import { toast } from "react-toastify";
 
 export default function Login(){
@@ -15,7 +15,7 @@ export default function Login(){
     password: input.password.trim(),            
   };
         try{ 
-            const res = await authServices.login(Newinput);
+            const res = await authService.login(Newinput);
             localStorage.setItem('token', res.data.token);
             toast.success('Login successfull')
             

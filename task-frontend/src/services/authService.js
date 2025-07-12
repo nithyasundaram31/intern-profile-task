@@ -1,6 +1,6 @@
 import instance from "./instance";
 
-const authServices = {
+const authService = {
     register: async (userData) => {
         return await instance.post('/api/users/register', userData);
     },
@@ -22,4 +22,4 @@ const authServices = {
    
 }
 
-export default authServices;
+export default authService;

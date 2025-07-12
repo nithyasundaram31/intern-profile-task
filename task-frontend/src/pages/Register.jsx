@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import authServices from "../services/authService";
+import authService from "../services/authService";
 import { toast } from "react-toastify";
 
 
@@ -23,7 +23,7 @@ export default function Register() {
     const handleRegister = async (e)=> {
         e.preventDefault();
         try{ 
-             const res = await authServices.register(data);
+             const res = await authService.register(data);
              localStorage.setItem('token', res.data.token);
             toast.success("Registration successfully ")
              navigate('/login');
