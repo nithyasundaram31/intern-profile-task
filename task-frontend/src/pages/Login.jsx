@@ -10,12 +10,12 @@ export default function Login(){
     const handleChange = (e) => setInput({ ...input, [e.target.name]: e.target.value});
     const handleLogin = async (e)=>{
         e.preventDefault();
-        const Newinput = {
+        const NewInput = {
     email: input.email.trim().toLowerCase(),     
     password: input.password.trim(),            
   };
         try{ 
-            const res = await authService.login(Newinput);
+            const res = await authService.login(NewInput);
             localStorage.setItem('token', res.data.token);
             toast.success('Login successfull')
             
