@@ -4,7 +4,7 @@ const baseURL = 'https://intern-profile-task.onrender.com';
 
 const instance = axios.create({
     baseURL,
-    timeout: 20000,
+    timeout: 30000,
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
