@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../services/authService";
 import { toast } from "react-toastify";
@@ -24,6 +23,7 @@ export default function Register() {
         e.preventDefault();
         try{ 
              const res = await authService.register(data);
+             console.log(res.data);
              localStorage.setItem('token', res.data.token);
             toast.success("Registration successfully ")
            

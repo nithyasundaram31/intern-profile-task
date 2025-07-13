@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
 import authService from "../services/authService";
 import { toast } from "react-toastify";
 
@@ -14,6 +13,7 @@ export default function Login(){
         try{ 
             const res = await authService.login(input);
             localStorage.setItem('token', res.data.token);
+            console.log(res.data);
             toast.success('Login successfull')
              setTimeout(() => {
                    navigate('/profile');
