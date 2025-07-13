@@ -26,7 +26,11 @@ export default function Register() {
              const res = await authService.register(data);
              localStorage.setItem('token', res.data.token);
             toast.success("Registration successfully ")
-             navigate('/login');
+           
+             setTimeout(() => {
+                    navigate('/login');
+                }, 500);
+            
         } catch (err){
             console.error("Registration failed:", err);
            toast.error(err.response?.data.message || "Something went wrong.");

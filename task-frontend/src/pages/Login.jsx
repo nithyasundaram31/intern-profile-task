@@ -10,16 +10,16 @@ export default function Login(){
     const handleChange = (e) => setInput({ ...input, [e.target.name]: e.target.value});
     const handleLogin = async (e)=>{
         e.preventDefault();
-        const NewInput = {
-    email: input.email.trim().toLowerCase(),     
-    password: input.password.trim(),            
-  };
+       
         try{ 
-            const res = await authService.login(NewInput);
+            const res = await authService.login(input);
             localStorage.setItem('token', res.data.token);
             toast.success('Login successfull')
+             setTimeout(() => {
+                   navigate('/profile');
+                }, 500);
             
-            navigate('/profile');
+           
         }catch (err){
             console.error("Login failed:", err);
           toast.error(err.response?.data?.message || "Invalid credentials.");
