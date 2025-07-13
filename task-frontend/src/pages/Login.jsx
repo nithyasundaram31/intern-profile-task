@@ -11,7 +11,7 @@ export default function Login(){
         e.preventDefault();
        
         try{ 
-            await fetch("https://intern-profile-task.onrender.com/");
+            
             const res = await authService.login(input);
             localStorage.setItem('token', res.data.token);
             console.log(res.data);
