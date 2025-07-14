@@ -11,7 +11,7 @@ const instance = axios.create({
       
 
     },
-    withCredentials: false,
+    withCredentials: true,
 });
 
 instance.interceptors.request.use((config) => {
