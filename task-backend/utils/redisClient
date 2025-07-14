@@ -1,11 +1,35 @@
-require ('dotenv').config()
+// require ('dotenv').config()
+// const { Redis } = require('@upstash/redis');
+
+// const redis =new Redis({
+//     url:process.env.UPSTASH_REDIS_URL,
+//     token:process.env.UPSTASH_REDIS_TOKEN,
+// });
+// console.log("Redis URL:", process.env.UPSTASH_REDIS_URL);
+// console.log("Redis Token:", process.env.UPSTASH_REDIS_TOKEN);
+
+// module.exports =redis
+
+
+
+require('dotenv').config();
 const { Redis } = require('@upstash/redis');
 
-const redis =new Redis({
-    url:process.env.UPSTASH_REDIS_URL,
-    token:process.env.UPSTASH_REDIS_TOKEN,
+const redis = new Redis({
+    url: process.env.UPSTASH_REDIS_URL,
+    token: process.env.UPSTASH_REDIS_TOKEN,
 });
-console.log("Redis URL:", process.env.UPSTASH_REDIS_URL);
-console.log("Redis Token:", process.env.UPSTASH_REDIS_TOKEN);
 
-module.exports =redis
+// Test connection
+async function testRedisConnection() {
+    try {
+        const result = await redis.ping();
+        console.log('Redis connection successful:', result);
+    } catch (error) {
+        console.error('Redis connection failed:', error);
+    }
+}
+
+testRedisConnection();
+
+module.exports = redis;
