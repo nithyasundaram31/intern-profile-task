@@ -11,7 +11,7 @@ It allows users to register, login, view, and update their profile securely.
 
 3) All protected routes (like /profile) require the token to be sent in request headers:
 
-Authorization: Bearer <token>
+   Authorization: Bearer <token>
 
 4) The token is verified on the backend and  checked in Redis.
 
@@ -19,15 +19,15 @@ Authorization: Bearer <token>
 
  **Redis Integration**
 
- - This project uses Redis (via Upstash) as a temporary in-memory cache for improved performance and session management.
+ - This task uses Redis (via Upstash) as a temporary in-memory cache for improved performance and session management.
 
  - MongoDB is used for permanent data storage (user info).
 
 Redis is used as a temporary store (cache) :
 
-- Store user sessions (JWT tokens)
+- Store user sessions (JWT tokens) with 24-hour expiry
 
-- Store user profile data
+- Store user profile data 
 
 - Speed up repeated requests without hitting the database every time
 
