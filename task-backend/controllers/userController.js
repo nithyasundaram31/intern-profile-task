@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const generateToken = require('../utils/generateToken');
-const { setCache, getCache, deleteCache } = require('../utils/redisCache');
+const { setCache, getCache } = require('../utils/redisCache');
 
 // Login function with proper error handling
 exports.login = async (req, res) => {
@@ -62,7 +62,7 @@ exports.register = async (req, res) => {
 
         // Input validation
         if (!name || !email || !password) {
-            return res.status(400).json({ message: 'Name, email, and password are required' });
+            return res.status(400).json({ message: 'Name, email, password are required' });
         }
 
         // Check if user already exists
