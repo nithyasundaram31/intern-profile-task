@@ -11,7 +11,6 @@ It allows users to register, login, view, and update their profile securely.
 
 3) All protected routes (like /profile) require the token to be sent in request headers:
 
-```env
 Authorization: Bearer <token>
 
 4) The token is verified on the backend and  checked in Redis.
