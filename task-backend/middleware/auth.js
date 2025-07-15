@@ -1,4 +1,6 @@
 // middleware/auth.js
+const jwt = require('jsonwebtoken');
+
 const auth = async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
@@ -14,19 +16,6 @@ const auth = async (req, res, next) => {
         // JWT verify pannunga
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         
-        // Redis check optional aakkunga
-        try {
-            const storedUserId = await getCache(token);
-            if (storedUserId !== null && storedUserId !== decoded.id) {
-                return res.status(401).json({
-                    message: "Session expired or invalid"
-                });
-            }
-        } catch (redisError) {
-            console.error('Redis error in auth middleware:', redisError);
-            // Redis fail aanalum JWT valid na continue pannunga
-        }
-
         req.user = { id: decoded.id };
         next();
         
