@@ -18,7 +18,7 @@ async function createRedisConnection() {
             });
         }
         
-        // Test connection
+        
         await redis.ping();
         isConnected = true;
         console.log('Redis connection successful');
@@ -30,7 +30,6 @@ async function createRedisConnection() {
     }
 }
 
-// Initialize connection
 createRedisConnection().catch(console.error);
 
 module.exports = { redis, isConnected, createRedisConnection };

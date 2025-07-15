@@ -7,17 +7,31 @@ It allows users to register, login, view, and update their profile securely.
 
 1) On login/register, the backend returns a JWT token
 
+2) This token is stored in localStorage on the frontend.
 
-2) I implemented JWT-based authentication and stored tokens in Redis via Upstash using key-value pairs with 24-hour expiry.
+3) All protected routes (like /profile) require the token to be sent in request headers:
 
-3) Token is stored in localStorage
+```env
+Authorization: Bearer <token>
 
-4) All protected routes (like /profile) require token to access
+4) The token is verified on the backend and  checked in Redis.
 
-5) Token is sent in request headers:
- Authorization: Bearer <token>
+5) MongoDB is used for permanent user data storage.
 
-6) MongoDB for storing user data
+ **Redis Integration**
+
+ - This project uses Redis (via Upstash) as a temporary in-memory cache for improved performance and session management.
+
+ - MongoDB is used for permanent data storage (user info).
+
+Redis is used as a temporary store (cache) :
+
+- Store user sessions (JWT tokens)
+
+- Store user profile data
+
+- Speed up repeated requests without hitting the database every time
+
 
 **Technologies Used**
 

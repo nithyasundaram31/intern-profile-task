@@ -1,4 +1,3 @@
-// middleware/auth.js
 const jwt = require('jsonwebtoken');
 
 const auth = async (req, res, next) => {
@@ -13,7 +12,7 @@ const auth = async (req, res, next) => {
 
         const token = authHeader.split(' ')[1];
         
-        // JWT verify pannunga
+    
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         
         req.user = { id: decoded.id };
